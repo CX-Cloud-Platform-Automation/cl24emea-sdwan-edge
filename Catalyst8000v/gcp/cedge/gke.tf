@@ -13,6 +13,11 @@ variable "gke_num_nodes" {
   description = "Number of GKE nodes"
 }
 
+variable "k8s_version" {
+  default     = "1.27.3-gke.1005"
+  description = "Version of the k8s cluster"
+}
+
 # GKE cluster
 resource "google_container_cluster" "primary" {
   name     = "multicloud-gke"
@@ -30,7 +35,7 @@ resource "google_container_cluster" "primary" {
   release_channel {
     channel = "UNSPECIFIED"
   }
-  min_master_version = "1.24.16-gke.500"
+  min_master_version = var.k8s_version
 }
 
 # Separately Managed Node Pool
@@ -39,7 +44,7 @@ resource "google_container_node_pool" "primary_nodes" {
   location   = var.zone
   cluster    = google_container_cluster.primary.name
   node_count = var.gke_num_nodes
-  version    = "1.27.3-gke.100"
+  version    = var.k8s_version
 
   node_config {
     oauth_scopes = [
