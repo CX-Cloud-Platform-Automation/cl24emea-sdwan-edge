@@ -36,6 +36,8 @@ resource "google_container_cluster" "primary" {
     channel = "UNSPECIFIED"
   }
   min_master_version = var.k8s_version
+
+  deletion_protection = false
 }
 
 # Separately Managed Node Pool
