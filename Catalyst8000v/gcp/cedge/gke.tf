@@ -14,7 +14,7 @@ variable "gke_num_nodes" {
 }
 
 variable "k8s_version" {
-  default     = "1.27.3-gke.1005"
+  default     = "1.27.3-gke.100"
   description = "Version of the k8s cluster"
 }
 
