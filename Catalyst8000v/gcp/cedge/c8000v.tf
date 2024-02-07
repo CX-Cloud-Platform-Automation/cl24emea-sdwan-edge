@@ -1,5 +1,5 @@
 resource "google_compute_instance" "cedge" {
-  name           = var.name
+  name           = ${var.name}-cl-demo
   machine_type   = var.instance_type
   zone           = var.zone
   can_ip_forward = true
