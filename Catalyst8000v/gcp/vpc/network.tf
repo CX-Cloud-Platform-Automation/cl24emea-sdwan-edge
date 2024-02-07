@@ -1,10 +1,10 @@
 resource "google_compute_network" "transport" {
-  name = "sdwan-transport-network"
+  name = "sdwan-transport-network-cl-demo"
   auto_create_subnetworks = false
 }
 
 resource "google_compute_network" "service" {
-  name = "sdwan-service-network"
+  name = "sdwan-service-network-cl-demo"
   auto_create_subnetworks = false
 }
 
