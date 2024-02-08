@@ -1,5 +1,5 @@
 resource "google_compute_firewall" "transport" {
-  name    = "sdwan-transport-rules-cl-demo"
+  name    = "sdwan-transport-rules"
   network = data.google_compute_subnetwork.transport.network
 
   allow {
@@ -21,7 +21,7 @@ resource "google_compute_firewall" "transport" {
 }
 
 resource "google_compute_firewall" "service" {
-  name    = "sdwan-service-allow-all-cl-demo"
+  name    = "sdwan-service-allow-all"
   network = data.google_compute_subnetwork.service.network
 
   allow {
